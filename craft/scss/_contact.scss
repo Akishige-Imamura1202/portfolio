@@ -1,0 +1,92 @@
+@charset "utf-8";
+
+$pc: 769px;
+@mixin pc {  
+    @media (min-width:($pc)) {
+        @content; 
+    }
+}
+
+/* お問い合わせ */
+
+.contact {
+	
+	justify-content: center;
+    padding-top: 1rem;
+    background-color: #DCF1D0;
+    padding-bottom: 30px;
+    margin-bottom: 50px;
+    
+    &__title {
+        margin: 0 0 1rem 1rem;
+    }
+    
+    &__flex {
+        display: block;
+        text-align: center;
+		
+        @include pc {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+    
+	&__form {
+		padding: 0 1rem;
+	}
+	
+    &__contents {
+        max-width: 70%;
+		margin-left: 1rem;
+        margin-bottom: 30px;
+        
+        @include pc {
+			display: inline-block;
+            max-width: 80%;
+        }
+    }
+	
+    &__text {
+        margin-top: 1rem;
+    }
+	
+	&__name,&__Email,&__textarea {
+		border: 1px solid #000;
+		background-color: #fff;
+		border-radius: 5px;
+	}
+	
+	&__name {
+		width: 150px;
+	}
+	
+	&__Email {
+		width: 250px;
+	}
+	
+	&__textarea {
+		height: 250px;
+		width: 250px;
+		
+		@include pc {
+		width: 500px;
+		}
+	}
+	
+	&__btn {
+		border: 1px solid #000;
+		background-color: #898989;
+		border-radius: 5px;
+	} 
+}
+
+
+
+
+
+
+
+
+
+
+

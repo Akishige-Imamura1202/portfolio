@@ -1,0 +1,434 @@
+@charset "utf-8";
+
+$pc: 769px;
+@mixin pc {  
+    @media (min-width:($pc)) {
+        @content; 
+    }
+}
+
+
+/* 共通部分 */
+body {
+    position: relative;
+}
+
+.hambarger--close {
+	z-index: 999;
+    width: 50px;
+    height: 60px;
+    border: 3px solid #000;
+    position: absolute;
+	position: fixed;
+    top: 2%;
+    right: 4%;
+    border-radius: 10px;
+	background-color: #fff;
+	
+	@include pc {
+		display: none;
+	}
+	
+	&:hover {
+		cursor: pointer;
+        background-color: #DCF1D0;
+	}
+    
+    & span {
+        position: absolute;
+        top: 50%;
+        left: 8px;
+        width: 30px;
+        height: 0;
+        border: 2px solid #000;
+        background-color: #000;
+        border-radius: 3px;
+		transition-duration: 1s;
+		transform: rotateZ(0deg);
+        
+        &:nth-of-type(1){
+            top: 25%;
+			transition-duration: 1s;
+			transform: rotate(0deg);
+        }
+        
+        &:nth-of-type(3){
+            top: 75%;
+			transition-duration: 1s;
+			transform: rotate(0deg);
+        }
+    }
+}
+
+.hambarger--open {
+	z-index: 999;
+    width: 50px;
+    height: 60px;
+    border: 2px solid #000;
+    position: absolute;
+	position: fixed;
+    top: 2%;
+    right: 4%;
+    border-radius: 10px;
+    
+        &:hover {
+            cursor: pointer;
+            background-color: #F2D0EE;
+        }
+    
+    & span {
+    position: absolute;
+    top: 50%;
+    left: 8px;
+    width: 30px;
+    height: 0;
+    border: 2px solid #000;
+    background-color: #000;
+    border-radius: 3px;
+	transition-duration: 1s;
+	transform: rotateY(405deg);
+    opacity: 0;
+        
+    &:nth-of-type(1){
+        top: 50%;
+		transition-duration: 1s;
+        transform: rotate(-405deg);
+		opacity: 1;
+    }
+        
+    &:nth-of-type(3){
+        top: 50%;
+		transition-duration: 1s;
+        transform: rotate(405deg);
+		opacity: 1;
+        }
+    }
+}
+
+.ham--gnavi--close {
+	display: none;
+}
+
+.ham--gnavi--open {
+	z-index: 888;
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(255,255,255,0.8);
+	
+	&__title {
+		margin: 0 auto;
+		text-align: center;
+	}
+	
+	&__img {
+		width: 70%;
+		height: auto;
+		margin-top: 5px;
+		padding-top: 0;
+	} 
+	
+	&__item{
+		list-style: none;
+		text-align: center;
+		padding: 30px 0;
+	}
+	
+	&__link{
+		font-size: 24px;
+		//margin-bottom: 50px;
+		display: inline-block;
+		text-decoration: none;
+		
+		&:hover{
+			background-color:  #F2D0EE;
+		}
+	}
+	
+
+}
+
+.header {
+	
+	&__inner {
+		@include pc {
+			display: flex;
+			margin-top: 20px;
+			justify-content: space-between;
+		}
+	}
+	
+    &__title {
+        margin: 0 auto;
+		text-align: center;
+		
+		@include pc {
+			margin: 0;
+		}
+    }  
+	
+	&__img {
+		width: 25%;
+		height: auto;
+		
+		@include pc {
+			width: 80%;
+		}
+	}
+}
+
+
+.gnavi {
+    display: none;
+	
+	@include pc {
+		display: block;
+		margin: auto 0;
+		margin-right: 15px;
+	}
+	
+	&__list {
+		display: flex;
+		
+	}
+	
+	&__item {
+		list-style-type: none;
+		font-size: 1.2rem;
+		border-left: 2px solid #000;
+		
+		&:last-of-type {
+			border-right: 2px solid #000;
+		}
+	}
+	
+	&__link {
+		text-decoration: none;
+		
+		&:hover {
+			background-color: #F2D0EE;
+		}
+		
+		@include pc {
+			padding: 0 15px;
+			display: inline-block;
+
+		}
+	}
+}
+
+.swiper-container{
+    width: 90vw;
+    height: 45vh;
+	
+	@include pc {
+		
+		height: 60vh;
+	}
+}
+
+.swiper-slide {
+	
+}
+
+.swiper-wrapper img{
+	width: 100%;
+	max-width: 70vh;
+    
+    //height: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    
+	@include pc {
+		max-width: 90vh;
+	}
+
+	
+}
+
+
+
+/* パンくずリスト*/
+.breadcrumb {
+    max-width: 700px;
+    margin: 0 auto;
+    margin-top: 30px;
+    
+    @include pc {
+        max-width: 1000px;
+    }
+    
+    &__list {
+        list-style-type: none;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+    }
+    
+    &__item {
+        
+        &:after {
+            content: ">";
+            padding: 0 1rem;
+        }
+        
+        &:last-child {
+            &::after {
+                content: "";
+            }
+            
+        }
+    }
+}
+
+
+
+.flex {
+	margin-top: 50px;
+	@include pc {
+		max-width: 1200px;
+		display: flex;
+		margin-right: auto;
+		margin-left: auto;
+	}
+}
+
+
+.wrapper {
+    margin-top: 35px;
+    max-width: 700px;
+    margin-right: auto;
+    margin-left: auto;
+	
+	&:first-child {
+		margin-top: 0;
+	}
+	
+	@include pc {
+		max-width: 1200px;
+	}
+}
+
+/* メインコンテンツ */
+.main {
+	@include pc {
+		max-width: 650px;
+	}
+}
+
+h2 {
+    margin: 0 0 1rem 1rem;
+}
+
+.top-news {
+    padding-top: 1rem;
+    background-color: #DCF1D0;
+    padding-bottom: 30px;
+    margin-bottom: 50px;
+    
+    &__contents {
+        max-width: 80%;
+        background-color: #fff;
+        margin-right: auto;
+        margin-left: auto;
+        margin-bottom: 30px;
+    }
+    
+    &__text {
+        margin: 1rem;
+        padding-bottom: 1rem;
+    }
+}
+
+
+
+.banner {
+    
+    &__img{
+        width: 50%;
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 20px;
+		
+		@include pc {
+			
+			width: 90%;
+			max-width: 400px;
+			margin-right: auto;
+			margin-left: auto;
+			margin-bottom: 115px;
+		}
+    }
+}
+
+
+.footer {
+    background-color: #DCF1D0;
+    margin-top: 30px;
+	padding: 20px 0;
+	
+	@include pc {
+		padding: 50px 0;
+	}
+	
+	&__copy {
+        font-size: 12px;
+        text-align: center;
+    
+	
+		@include pc {
+			margin-top: 50px;
+			font-size: 14px;
+		}
+	}
+}
+	
+.footer--gnavi {
+	display: none;
+		
+	@include pc {
+		display: block;
+	}
+	
+	&__list {
+		display: flex;
+		justify-content: center;
+	}
+	
+	&__item {
+		list-style-type: none;
+		font-size: 1.2rem;
+		border-left: 2px solid #000;
+		
+		&:last-of-type {
+			border-right: 2px solid #000;
+		}
+	}
+	
+	&__link {
+		text-decoration: none;
+		
+		&:hover {
+			background-color: #F2D0EE;
+		}
+		
+		@include pc {
+			padding: 0 40px;
+			display: inline-block;
+
+		}
+	}
+}
+
+
+
+@import "_top", "_campany","_product","_works","_news","_contact";
+
+
+

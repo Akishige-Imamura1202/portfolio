@@ -1,0 +1,58 @@
+@charset "utf-8";
+
+$pc: 769px;
+@mixin pc {  
+    @media (min-width:($pc)) {
+        @content; 
+    }
+}
+
+
+
+
+/* 会社概要 */
+.campany {
+    padding-top: 1rem;
+    background-color: #DCF1D0;
+    padding-bottom: 30px;
+    margin-bottom: 50px;
+    
+    &__img {
+		width: 70%;
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 30px;
+        &--sp{
+            @include pc {
+                display: none;
+            }
+        }
+        
+        &--pc{
+            display: none;
+            @include pc {
+                display: block;
+				width: 90%;
+            }
+        }
+    }
+    
+    &__contents {
+        max-width: 75%;
+        background-color: #fff;
+        margin-right: auto;
+        margin-left: auto;
+        margin-bottom: 30px;
+    }
+    
+    &__text {
+        margin: 1rem;
+        padding-bottom: 1rem;
+    }
+}
+
+
+
+
+
+

@@ -1,0 +1,89 @@
+@charset "utf-8";
+
+$pc: 769px;
+@mixin pc {  
+    @media (min-width:($pc)) {
+        @content; 
+    }
+}
+
+/* 作品 */
+.works {
+    padding-top: 1rem;
+    background-color: #DCF1D0;
+    padding-bottom: 30px;
+    margin-bottom: 50px;
+    
+    &__subtitle {
+        //margin: 0 0 1rem 1rem;
+        padding: 1rem 0 1rem 1rem;
+        background-color: #fff;
+    }
+    
+    
+    &__contents {
+		margin-top: 30px;
+        max-width: 70%;
+        margin-right: auto;
+        margin-left: auto;
+        margin-bottom: 30px;
+        
+        @include pc {
+            max-width: 80%;
+        }
+    }
+    
+	    &__flex {
+        display: block;
+        //text-align: center;
+		
+        @include pc {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+
+	
+    &__img {
+        max-width: 100%;
+		height: auto;
+        @include pc {
+            width: 30%;
+        }
+		
+        &:nth-of-type(2){
+            display: none;
+            @include pc{
+                display: block;
+            }
+        }
+		
+        &:nth-of-type(3){
+            display: none;
+            @include pc{
+                display: block;
+            }
+        }
+    }
+    
+    &__text {
+        margin: 1rem;
+        padding-bottom: 1rem;
+        display: none;
+        
+        @include pc {
+            display: block;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
