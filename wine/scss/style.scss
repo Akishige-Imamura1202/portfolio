@@ -1,0 +1,422 @@
+@charset "utf-8";
+
+$pc: 768px;
+@mixin pc {  
+    @media (min-width:($pc)) {
+        @content; 
+    }
+}
+
+.wrapper {
+	max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    
+    @include pc {
+        max-width: 1200px;
+    }
+}
+
+.header {
+	position: relative;
+    border-top: 10px solid #70285d;
+	
+	&__logo {
+        max-width: 100%;
+        padding-left: 30px;
+		margin-top: 10px;
+    }
+
+	&__list {
+		position: absolute;
+		right: 1000px;
+		list-style: none;
+		display: flex;
+		justify-content: center;
+		margin-bottom: 10px;
+		
+		@include pc {
+			position: static;
+		}
+    }
+	
+    &__item {
+		border-right: 1px solid #70285d;
+			&:last-of-type {
+			border-right: none;
+		}
+	}
+    
+    &__link {
+			text-decoration: none;
+        	color: #70285d;
+			display: inline-block;
+			padding: 0 5px;
+        
+		@include pc {
+			padding: 0 2rem;
+		}
+    }
+    
+    &__img {
+        width: 100%;
+        height: 500px;
+        object-fit: cover;
+    }
+	
+    &__rel {
+        position: relative;
+    }
+    
+    &__abs {
+        position: absolute;
+		max-width: 500px;
+		height: 200px;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        margin: auto;
+        background-color: rgba(109, 66, 150, .8);
+        border-radius: 20px;
+    }
+    
+    &__absTitle, &__absText {
+        text-align: center;
+		color: #fff;
+    }
+	
+	&__absTitle {
+        font-size: 3rem;
+        font-weight: lighter;
+        font-family: serif;
+		margin-top: 5%;
+	}
+	
+    &__absText {
+		text-align: center;
+		padding-top: 5px;
+        font-size: 14px;
+        padding: 0 80px;
+        
+        @include pc {
+        	font-size: 14px;
+			padding: 0 80px;
+        }
+    }
+}
+
+.mbtn {
+	display: block;
+}
+
+.open {
+	position: absolute;
+	position: relative;
+    z-index: 999;
+	top: 3%;
+	right: 5%;
+	width: 50px;
+	height: 50px;
+	border-radius: 5px;
+	position: fixed;
+	background-image: url("../img/wineclose.jpg");
+	
+	@include pc {
+        top: -150px;
+    }
+}
+
+.close {
+	position: absolute;
+	position: relative;
+    z-index: 2;
+	top: 3%;
+	right: 5%;
+	width: 50px;
+	height: 50px;
+	border: 1px solid #000;
+	border-radius: 5px;
+	position: fixed;
+	background-image: url("../img/wineopen.jpg");
+
+	@include pc {
+    top: -150px;
+    }
+}
+
+.mbtn:hover {
+	cursor: pointer;
+}
+
+.menu  {
+	float: left;
+    z-index: -5;
+	@include pc {
+    	right: -2000px;
+
+    }
+}
+
+.menu_open {
+	width: 100%;
+	height: 100vh;
+	position: fixed;
+    z-index: -1;
+	right: 0;
+	top: 0;
+	background-color:  rgba(109, 66, 150, .7);
+	text-align: center;
+	display: block;
+
+	
+	&__list {
+		list-style: none;
+        margin-top: 100px;
+    }
+	
+    &__item {
+		margin: 30px 0;
+	}
+
+    &__link {
+		display: inline-block;
+		padding: 20px 20%;
+        text-decoration: none;
+        color: white;
+		&:hover {
+			background-color: #000;
+		}
+	}
+}
+
+.menu_close {
+	display: none;
+}
+
+.main,.main__content, .guide, .wine{
+	padding-top: 100px;
+}
+
+.main {
+    
+    &__box {
+        font-size: 14px;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    &__title {
+        font-size: 2rem;
+    }
+    
+    &__text {
+        
+        text-align: center;
+        
+    }
+    
+    &__content {
+        @include pc {
+        display: flex;
+		justify-content: space-between;
+        }
+    }
+	
+	&__title, &__text,&__actTitle {
+		text-align: center;
+	}
+	
+	&__act {
+		max-width: 260px;
+		margin-top: 30px;
+		margin-right: auto;
+		margin-left: auto;
+        font-size: 14px;
+		
+		@include pc {
+            margin: 0;
+        }
+	}
+	
+	&__img {
+		display: block;
+		max-width: 50%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	
+	&__actText {
+	}
+
+	&__link {
+		text-decoration: none;
+		color: red;
+	}
+}
+
+.guide {
+			@include pc {
+			margin: 0;
+        }
+    
+	&__title {
+		margin-bottom: 10px;
+		color: rgb(109, 66, 150);
+		text-align: center;
+		@include pc {
+        	//margin-right: 0;
+			//margin-left: 0;
+            text-align: left;
+        }
+	}
+	
+	&__flex {
+		margin-top: 30px;
+		&:first-of-type {
+			margin-top: 0;
+		}
+		
+		@include pc {
+			margin: 0;
+        	display: flex;
+			justify-content:space-between;
+        }
+	}
+	
+	&__flexbox {
+		margin-left: auto;
+		margin-right: auto;
+		width: 50%;
+		margin-top: 30px;
+		
+		&:first-of-type {
+			margin-top: 0;
+		}
+		
+		@include pc {
+		max-width: 250px;
+		margin: 0;
+        }
+	}
+	
+	&__img {
+		width: 100%;
+	}
+	
+	&__content {
+		margin: 5px 0;
+		color: #8b4513;
+	}
+}
+
+
+.wine {
+	&__title {
+		text-align: center;
+	}
+    
+    &__titleImg {
+        max-width: 100%;
+    }
+	
+	&__bgc {
+		background-color: #fffff0;
+	}
+	
+	&__flex {
+		display: flex;
+		margin-left: auto;
+		margin-right: auto;
+		max-width: 500px;
+		flex-wrap: wrap;
+		margin-top: 10px;
+		margin-bottom: 10px;
+		justify-content: space-around;
+        
+        @include pc {
+            max-width: 1200px;
+        }
+	}
+	
+	&__img {
+		margin: 0 10px;
+        
+        @include pc {
+          margin: 0 ; 
+        }
+	}
+}
+
+.bg {
+	padding: 25% 50%;
+	background-image: url("../img/trentino.jpg");
+	background-repeat: no-repeat;
+	background-position: left bottom;
+    background-size: 500%;
+	background-attachment: fixed;
+	
+	@include pc {
+		padding: 30% 40%; 
+        }
+	
+}
+
+
+.footer {
+	background-color: #f8b500;
+	&__flex {
+		max-width: 500px;
+		padding: 25px 0;
+		display: flex;
+		justify-content: space-around;
+		margin-right: auto;
+		margin-left: auto;
+        
+                @include pc {
+          max-width: 700px;
+        }
+	} 
+    
+    &__copy {
+        color: green;
+    }
+	
+	&__list {
+		display: flex;
+	}
+	
+	&__item {
+		list-style: none;
+	}
+	
+	&__link {
+		display: inline-block;
+		padding: 0 10px;
+		text-decoration: none;
+		color: #000;
+	}
+	
+	&__img {
+        padding-top: 10px;
+		background-color: #fff;
+		text-align: center;
+	}
+} 
+
+.access {
+	border-right: 1px solid #000;
+}
+
+.map {
+    display: flex;
+    justify-content: center;
+}
+
+
+
+
+
+
+
+
