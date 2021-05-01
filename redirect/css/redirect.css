@@ -5,6 +5,7 @@ body {
 
 .redirect__img {
 	max-width: 100%;
+	width: 20%;
 	display: block;
   margin: 0 auto; }
 .redirect__title, .redirect__text {
