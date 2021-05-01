@@ -1,0 +1,17 @@
+@charset "utf-8";
+
+.redirect__img {
+  margin: 0 auto; }
+.redirect__title, .redirect__text {
+  text-align: center; }
+.redirect__link {
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #330099; }
+  .redirect__link:hover {
+    opacity: .4; }
+
+
+
+
