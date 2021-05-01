@@ -335,7 +335,7 @@ input[type="submit"], input[type="reset"], input[type="button"] {
 <?php }else{ ?>
 <h3>確認画面</h3>
 <p align="center">以下の内容で間違いがなければ、「送信する」ボタンを押してください。</p>
-<form action="<?php echo h($_SERVER['SCRIPT_NAME']); ?>" method="POST">
+<form action="mail.php" method="POST">
 <table class="formTable">
 <?php echo confirmOutput($_POST);//入力内容を表示?>
 </table>
