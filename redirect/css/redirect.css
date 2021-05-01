@@ -1,6 +1,11 @@
 @charset "utf-8";
 
+body {
+  font-family: 'Kiwi Maru', serif; }
+
 .redirect__img {
+	max-width: 100%;
+	display: block;
   margin: 0 auto; }
 .redirect__title, .redirect__text {
   text-align: center; }
