@@ -242,8 +242,9 @@ body {
     max-width: 500px;
     margin: 0 auto;
     margin-top: 30px; }
-    .about__space--diet{
-      margin: 0 auto; }
+  .about__diet{
+    display: flex;
+    justify-content: space-around; }
   .about__img {
     display: block;
     margin: 0 auto;
